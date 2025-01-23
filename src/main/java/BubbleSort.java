@@ -8,9 +8,21 @@ public class BubbleSort {
      * Hint: Remember to break the loop if no elements are swapped during a pass.
      *       This optimization ensures the algorithm stops early if the array is already sorted.
      */
-    public void sort (Comparable[] a){
-//        write your code here.
-
+    public void sort(Comparable[] a) {
+    // write your code here.
+        boolean swapped = true;
+        for (int i = 0; i < a.length - 1 && swapped; i++) {
+            swapped = false;
+            for (int j = 0; j < a.length - 1 - i; j++) {
+                if (a[j].compareTo(a[j + 1]) > 0) {
+                    swap(a, j, j + 1);
+                    swapped = true;
+                }
+            }
+            if (!swapped) {
+                break;
+            }
+        }
     }
     /**
      * Swaps two elements in the given array.
